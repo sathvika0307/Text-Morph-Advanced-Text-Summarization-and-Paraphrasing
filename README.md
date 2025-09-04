@@ -62,7 +62,7 @@ AI-Text-Morph/
 
 │ └── assets/          # Static resources
 
-│ └── Background_Image.jpg
+│ | └── Background_Image.jpg
 
 │
 
