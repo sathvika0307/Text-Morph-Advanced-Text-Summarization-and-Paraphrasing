@@ -1,5 +1,5 @@
 # 📝 AI-Text-Morph  
-A Summarization and Paraphrasing Project
+### A Summarization and Paraphrasing Project
 
 ---
 
@@ -104,14 +104,14 @@ AI-Text-Morph/
 
 ### Installation Steps
 
-# Create virtual environment
+## Create virtual environment
 python -m venv .venv
 
 source .venv/bin/activate   # Linux/Mac
 
 .\.venv\Scripts\activate    # Windows
 
-# Install dependencies
+## Install dependencies
 pip install -r requirements.txt
 
 ---
