@@ -1,6 +1,13 @@
+import sys
+import os
 import streamlit as st
-from user_db import update_profile, get_db
-from utils import verify_jwt, add_logout_button
+from backend.utils import verify_jwt, add_logout_button
+from database.user_db import update_profile, get_db
+
+# Add project root to sys.path so imports work
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 # ---------- PAGE CONFIG ----------
 st.set_page_config(page_title="Profile Management", page_icon="👤")

@@ -1,11 +1,12 @@
 import sys
 import os
 import streamlit as st
-from utils import add_logout_button, generate_jwt
-from user_db import init_db, add_user, get_db
+from backend.utils import add_logout_button, generate_jwt
+from database.user_db import init_db, add_user, get_db
+
 
 # Add project root to sys.path so imports work
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 

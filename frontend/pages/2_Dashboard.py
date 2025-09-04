@@ -1,10 +1,18 @@
+import sys
+import os
 import streamlit as st
 import textstat
 import matplotlib.pyplot as plt
 import docx
 import PyPDF2
-from utils import verify_jwt, add_logout_button
-from user_db import save_uploaded_file
+from backend.utils import verify_jwt, add_logout_button
+from database.user_db import save_uploaded_file
+
+
+# Add project root to sys.path so imports work
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 # ---------- LOGIN CHECK ----------
 token = st.session_state.get("jwt_token")

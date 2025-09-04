@@ -1,7 +1,9 @@
 import sqlite3
 import bcrypt
+import os
 
-DB_NAME = "user.db"
+# ---------- DATABASE PATH ----------
+DB_NAME = os.path.join(os.path.dirname(__file__), "user.db")
 
 # ---------- DB CONNECTION ----------
 def get_db():

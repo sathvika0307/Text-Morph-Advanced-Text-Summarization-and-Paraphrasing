@@ -1,6 +1,8 @@
 import sqlite3
+import os
 
-DB_NAME = "user.db"
+# ---------- DATABASE PATH ----------
+DB_NAME = os.path.join(os.path.dirname(os.path.dirname(__file__)), "database", "user.db")
 
 def add_uploaded_file_column():
     try:

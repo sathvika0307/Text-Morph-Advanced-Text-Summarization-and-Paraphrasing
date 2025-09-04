@@ -1,19 +1,34 @@
+import sys
+import os
 import streamlit as st
 import base64
-from user_db import init_db, check_user, reset_password, get_db
-from utils import add_logout_button, generate_jwt, verify_jwt
+
+# ---------- FIX PYTHON PATH ----------
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# ---------- IMPORTS ----------
+from database.user_db import init_db, check_user, reset_password, get_db
+from backend.utils import add_logout_button, generate_jwt, verify_jwt
 
 # ---------- BACKGROUND FUNCTION ----------
 def add_bg_from_local(image_file):
-    with open(image_file, "rb") as f:
+    # Robust absolute path
+    img_path = os.path.join(os.path.dirname(__file__), image_file)
+    img_path = os.path.abspath(img_path)
+    
+    if not os.path.isfile(img_path):
+        # Return an empty string to avoid crashing
+        st.warning(f"Background image not found at {img_path}")
+        return ""
+
+    with open(img_path, "rb") as f:
         data = f.read()
     encoded = base64.b64encode(data).decode()
-    page_bg_img = f"""
+    return f"""
     <style>
     [data-testid="stAppViewContainer"] {{
-        background: 
-            linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-            url("data:image/jpg;base64,{encoded}");
+        background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+                    url("data:image/jpg;base64,{encoded}");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -41,11 +56,12 @@ def add_bg_from_local(image_file):
     }}
     </style>
     """
-    return page_bg_img
 
 # ---------- CONFIG ----------
 st.set_page_config(page_title="AI Text Tool", page_icon="🤖", layout="centered")
-st.markdown(add_bg_from_local("Background_Image.jpg"), unsafe_allow_html=True)
+bg_style = add_bg_from_local("assets/Background_Image.jpg")
+if bg_style:
+    st.markdown(bg_style, unsafe_allow_html=True)
 
 # Initialize DB
 init_db()
@@ -73,13 +89,16 @@ if not st.session_state.forgot_mode:
     st.subheader("Login to Continue")
     identifier = st.text_input("Email or Username *")
     password = st.text_input("Password *", type="password")
-    remember = st.checkbox("Remember Me")  # ✅ Remember Me option
+    remember = st.checkbox("Remember Me")
 
-    col1, col2 = st.columns([1,1])
+    col1, col2 = st.columns([1, 1])
     with col1:
         login_btn = st.button("Sign In")
     with col2:
-        st.page_link("pages/1_Create_Account.py", label="Create Account", icon="📝")
+        # Simple navigation using session_state instead of page_link
+        if st.button("Create Account"):
+            st.session_state.page = "create_account"
+            st.experimental_rerun()
 
     if st.button("Forgot Password?"):
         st.session_state.forgot_mode = True
@@ -88,14 +107,12 @@ if not st.session_state.forgot_mode:
     if login_btn:
         user = check_user(identifier, password)
         if user:
-            # JWT expiration: 1 hour if not remembered, 7 days if remembered
             hours_valid = 168 if remember else 1
             token = generate_jwt(user[1], hours_valid=hours_valid)
-
             st.session_state.jwt_token = token
             st.session_state.user = user
-            st.success(f"✅ Welcome {user[4]}!")  # user[4] = name
-            st.rerun()  # modern alternative for rerun
+            st.success(f"✅ Welcome {user[4]}!")
+            st.rerun()
         else:
             st.error("❌ Invalid email or password.")
 
@@ -155,4 +172,5 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+
 add_logout_button()
