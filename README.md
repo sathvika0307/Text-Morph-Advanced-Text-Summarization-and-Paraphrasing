@@ -1,5 +1,4 @@
-# 📝 AI-Text-Morph  
-### A Summarization and Paraphrasing Project
+# 📝 AI-Text-Morph - A Summarization and Paraphrasing Project
 
 ---
 
