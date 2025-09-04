@@ -48,11 +48,11 @@ AI-Text-Morph/
 
 │
 
-├── frontend/ # UI using Streamlit
+├── frontend/          # UI using Streamlit
 
-│ ├── Home.py # Landing page
+│ ├── Home.py          # Landing page
 
-│ ├── pages/ # Multi-page Streamlit navigation
+│ ├── pages/           # Multi-page Streamlit navigation
 
 │ │ ├── create_account.py
 
@@ -60,13 +60,13 @@ AI-Text-Morph/
 
 │ │ └── profile.py
 
-│ └── assets/ # Static resources
+│ └── assets/          # Static resources
 
 │ └── Background_Image.jpg
 
 │
 
-├── backend/ # Backend logic & utility functions
+├── backend/           # Backend logic & utility functions
 
 │ ├── utils.py
 
@@ -74,7 +74,7 @@ AI-Text-Morph/
 
 │
 
-├── database/ # Database files
+├── database/          # Database files
 
 │ ├── user_db.py
 
@@ -82,11 +82,11 @@ AI-Text-Morph/
 
 │
 
-├── requirements.txt # Python dependencies
+├── requirements.txt   # Python dependencies
 
-├── .gitignore # Ignored files/folders
+├── .gitignore         # Ignored files/folders
 
-└── README.md # Documentation
+└── README.md         # Documentation
 
 ---
 
