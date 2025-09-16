@@ -4,11 +4,20 @@ A Summarization and Paraphrasing Project
 ---
 
 ## 📖 Description
-*AI-Text-Morph* is a lightweight NLP-based project that allows users to *summarize* and *paraphrase* text using modern AI models. 
 
-The application provides a simple *Streamlit-based frontend* for interaction, with a *FastAPI backend* handling authentication, text processing, and database operations.  
+**AI-Text-Morph** is a lightweight NLP-based application that allows users to **analyze, summarize, and paraphrase text** through an intuitive **Streamlit interface.**
 
-It’s designed as an educational and practical project that demonstrates *authentication, database integration, NLP model usage, and frontend-backend connectivity*.
+Users can securely log in, then either **upload a file** or **paste text** directly into the platform. Once text is provided, the system offers multiple processing options:
+
+- **Readability Analysis** – Evaluate text complexity using readability scores.
+
+- **Summarization** – Generate concise summaries in **small, medium, or long lengths**.
+
+- **Paraphrasing** – Rephrase text with **easy, medium, or advanced complexity**.
+
+All processed outputs are securely stored in a **SQLite database** for consistency and future reference.
+
+This project demonstrates the **practical integration of authentication, database storage, and rule-based NLP algorithms** within an interactive interface, making it both an educational and functional solution for text processing.
 
 ---
 
@@ -93,17 +102,17 @@ AI-Text-Morph/
 
 ---
 
----
-
 ## 🖥 Prerequisites
 
 - *Python 3.10+*
-  
+
 - *pip* for dependency management
    
 - *Virtual environment* (recommended)
   
-- *SQLite* (already included with Python)  
+- *SQLite* (already included with Python)
+
+  ---
 
 ## Install dependencies
 
@@ -115,20 +124,12 @@ pip install -r requirements.txt
 
 By building and using *AI-Text-Morph*, you will:
 
-- Understand how to integrate *FastAPI (backend)* with *Streamlit (frontend)*.
-   
-- Learn to implement *secure authentication* with password hashing and token-based methods.
-  
+- Understand how to integrate *FastAPI (backend)* with *Streamlit (frontend)*.  
+- Learn to implement *secure authentication* with password hashing and token-based methods. 
 - Gain experience in *SQLite database management* with Python (SQLAlchemy/Pydantic).
-  
-- Explore *Natural Language Processing (NLP)* tasks such as summarization, transformation, and translation.
-   
-- Learn to use *Hugging Face Transformers* and *PyTorch* for AI model integration.
-  
+- Explore *Natural Language Processing (NLP)* tasks such as summarization, transformation, and translation. 
+- Learn to use *Hugging Face Transformers* and *PyTorch* for AI model integration. 
 - Practice building *modular project structures* for maintainable codebases.
-  
 - Understand how to manage *environment variables* with python-dotenv for secure configuration.
-    
 - Develop skills in *UI/UX with Streamlit* for building interactive applications.
-  
 - Learn how to *containerize or extend* the project for deployment (future enhancement).
