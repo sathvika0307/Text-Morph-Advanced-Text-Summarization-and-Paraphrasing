@@ -23,17 +23,17 @@ This project demonstrates the **practical integration of authentication, databas
 
 ## ⚙ Tech Stack
 
-- *Core:* Python 3.10/3, FastAPI, Uvicorn, Streamlit
+- **Core:** Python 3.10/3, FastAPI, Uvicorn, Streamlit
   
-- *Authentication:* python-jose, passlib[bcrypt], bcrypt
+- **Authentication:** python-jose, passlib[bcrypt], bcrypt
    
-- *Database:* SQLite (lightweight, built into Python)
+- **Database:** SQLite (lightweight, built into Python)
   
-- *AI/NLP:* Hugging Face Transformers, PyTorch, SentencePiece, NLTK
+- **AI/NLP:** Hugging Face Transformers, PyTorch, SentencePiece, NLTK
   
-- *Translation Support:* googletrans, Hugging Face Transformers
+- **Translation Support:** googletrans, Hugging Face Transformers
   
-- *Utilities:* Pydantic, httpx, python-dotenv  
+- **Utilities:** Pydantic, httpx, python-dotenv  
 
 ---
 
