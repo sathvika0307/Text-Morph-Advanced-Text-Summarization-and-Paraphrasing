@@ -1,5 +1,5 @@
 # 📝 AI-Text-Morph  
-A Summarization and Paraphrasing Project
+**A Text Readability, Summarization, and Paraphrasing Application**
 
 ---
 
